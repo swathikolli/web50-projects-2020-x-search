@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Search</title>
+        <link href="favicon.webp" type="Image" rel="icon">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+      
+      table{
+        
+        padding-left: 50px;
+        padding-top: 50px;
+        column-span: 2;
+        position: absolute;
+        top: 15%;
+        left: 1%;
+         
+      }
+      td,th{
+        padding-top: 30px;
+        padding-left: 30px;
+      }
+      .gi{  
+        font-size: 30px;
+        font-family: bold;
+        position:absolute;
+        color:red;
+              top:2%;
+              right:0%;
+              left:80%;
+        
+      }
+      .search{
+                 
+                 width: 700px;
+                 height: 30px;
+                 font-size: 22px;
+                 padding-left: 4%;
+             
+      }
+      
+      .submit{
+             width: 150px;
+                 height: 40px;
+                 opacity: 0.8;
+                 position: absolute;
+             top: 60%;
+             right: 0;
+             left: 15%;
+             background-color: blue;
+             color: white;
+      }
+     h3{
+      position: absolute;
+      top: 12%;
+      left: 2%;
+      color:red;
+
+     }
+     .google{
+      padding: 10px;
+      opacity: 1;
+     }
+    img{
+      width: 100px;
+      height: 50px;
+    }  
+    h4{
+      font-style: monospace;
+      color: pink;
+    }
+    </style>
+    </head>
+    <body>
+     <div class=" bg-secondary google">
+      <h4>Google</h4>
+     </div> 
+      
+      
+      <a href="index.html" class="gi"><-- Google  Search</a>
+        
+      <div class="m">
+        <form action="https://www.google.com/advanced_search" class="f">
+          <h3>Advanced Search</h3>
+          <table>
+            <th>Find pages with...</th>
+            <th></th>
+            <tr>
+              <td>all these words</td>
+              <td><input type="text" name="as_q" class="search"></td>
+            </tr>
+            <tr>
+              <td>this exact word  or phrase</td>
+              <td><input type="text" name="as_epq" class="search"></td>
+            </tr>
+            <tr>
+              <td>any of these words</td>
+             <td><input type="text" name="as_oq" class="search"></td>
+            </tr>
+            <tr>
+              <td>none of these words</td>
+              <td><input type="text" name="as_eq" class="search"></td>
+            </tr>
+          </table>
+        <button type="submit" name="as_eq" class="submit">advanced Search</button>          
+
+           
+        </form>
+        </div>
+    </body>
+</html>
