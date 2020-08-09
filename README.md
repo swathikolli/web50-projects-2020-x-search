@@ -1,5 +1,5 @@
 # web50-projects-2020-x-search
-project search in edx
+project search in EDX Course:
  This project represents the google search like Google's own.
  index.html:
  I have created Google Search page and it has links to Google Image Search and Google Advanced Search.
