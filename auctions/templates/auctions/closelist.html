@@ -1,0 +1,43 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1 style="font-family: italic;color: red">Closed auctions</h1>
+  {% for l in list %}
+    {% if  l.title  ==  title  %}
+  	<table>
+  		<tr>
+  			<td>
+  				<div align="left" class="image" style="padding-top: 30px;padding-left: 5px;border:1;">
+  		        <img src=" {{ l.photo_url }}" alt="image" width="200px" height="200px">
+  		        </div>
+  		     </td>
+  		     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  		     <td>
+  		     	<div style="font-family: monospace;font-size: 30px;color:blue;">
+               <h4 style="font-family: bold;font-size: 30px;color: red;">{{ l.title }}</h4>
+                <h6>{{ l.description }}</h6>
+                <table>
+                  <tr>
+                    <td>   
+                        <h5>Listed by :{{ l.created }}</h5>
+                        <h5>Category :{{ l.category }}</h5>
+                        <h5>Listed on:{{ l.date }}</h5>
+                        <h5>Starting bid : ${{ l.bid }}</h5>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+  		</tr>
+  	</table><hr><hr>
+    <table>
+      <tr>
+        <td>
+        <h5 style="color: darkred;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">This auctions was won by {{username}}for $ {{current_bid}}</h5>
+         <h5 style="color: darkred;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">This auctions was closed</h5>
+         </td>
+        
+      </tr>
+    </table>
+    {% endif %}
+   {% endfor %}
+{% endblock %}

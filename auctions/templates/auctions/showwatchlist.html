@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1 style="font-family: monospace;color: red">WatchList items</h1>
+  {% for l in list %}
+  <div class="Z">
+
+  	<table>
+  		<tr>
+  			<td>
+  				<div align="left" class="image" style="padding-top: 30px;padding-left: 5px;border:1;">
+  		        <img src=" {{ l.photo_url }}" alt="image" width="200px" height="200px">
+  		        </div>
+  		     </td>
+  		     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  		     <td>
+  		     	<div style="font-family: monospace;font-size: 30px;color:blue;">
+                 <h5 style="font-family: bold;font-size: 30px;color:red;"><a href="http://127.0.0.1:8000/item/{{ l.title }}">{{ l.title }}</a></h5>
+                 <h5>Bidding At :${{ l.bid }}</h5>
+                 <h5>Listed :{{ l.date }}</h5>
+				 <h5>DESC : {{ l.description }}</h5>
+				 <form action="{% url 'removeWatchlist' %}" method="POST">
+					{% csrf_token %}
+					<input type="text" name="t" readonly="readonly" value="{{ l.title }}" hidden>
+					<input type="submit" value="remove watchlist" style="color: blue;font-size: 20px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+				</form>
+             </td>
+  		</tr>
+  	</table>
+   {% endfor %}
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+	
+   <div align="center">
+    <form action="{% url 'active_list' %}" method="Post">
+		{% csrf_token %}
+		<table style="background-color:rgb(12, 120, 139);color: rgb(199, 27, 21);font-family: bold;font-size: 30px;" width="800" height="600">
+			<th style="padding-left: 150px;">
+				<h2 style="color: rgb(199, 21, 21);font-family: bold;font-size: 35px;" align="center">Create Listing</h2>
+			</th><tr>
+				<td style="padding-left: 150px;">
+					Title :
+				</td>
+				<td style="padding-right: 50px;">
+					<input type="text" name="title" placeholder="enter title here">
+				</td>
+			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr>
+				<td style="padding-left: 150px;">
+					Starting Bid :
+				</td>
+				<td>
+					<input type="number" name="bid" placeholder="enter bid here">
+				</td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td style="padding-left: 150px;">
+					Category:
+				</td>
+				<td>
+					<select type="dropdown" name="cat">
+						<option value="Home">Home</option>	
+						<option value="Education">Education</option>
+						<option value="Health">Health</option>
+						<option value="Automobile">Automobile</option>
+						<option value="Sports">Sports</option>
+						<option value="Fasion">Fasion</option>
+						<option value="Others">Others</option>
+						</select>
+				</td>
+			</tr>
+			<tr></tr>
+			<tr></tr>
+			<tr rowspan=2>
+				<td style="padding-left: 150px;">
+					Photo URL:
+				</td>
+				<td>
+					<input type="URL" name="photo">
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-left: 200px;">
+					<textarea name="description" placeholder="enter description here...">
+        	
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td style="padding-left: 270px;">
+					<button type="submit" style="background-color:orchid;color:black;font-family: bold;size: 20px;">Post List</button>
+				</td>
+			</tr>
+        </table>
+        
+       
+    </form>
+</div>
+    {% endblock %}

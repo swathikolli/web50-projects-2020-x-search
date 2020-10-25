@@ -1,0 +1,75 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1 style="font-family: monospace;color: red">Active Listings</h1>
+  {% for l in list %}
+    {% if  l.title  ==  title  %}
+  	<table>
+  		<tr>
+  			<td>
+  				<div align="left" class="image" style="padding-top: 30px;padding-left: 5px;border:1;">
+  		        <img src=" {{ l.photo_url }}" alt="image" width="200px" height="200px">
+  		        </div>
+  		     </td>
+  		     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  		     <td>
+  		     	<div style="font-family: monospace;font-size: 30px;color:blue;">
+               <h4 style="font-family: bold;font-size: 30px;color:red;">{{ l.title }}</h4>
+                <h6>{{ l.description }}</h6>
+                <table>
+                  <tr>
+                    <td>   
+                        <h5>Listed by :{{ l.created }}</h5>
+                        <h5>Category :{{ l.category }}</h5>
+                        <h5>Listed on:{{ l.date }}</h5>
+                        <h5>Starting bid : ${{ l.bid }}</h5>
+                        <h5></h5>
+                    </td>
+                    <td>
+                        <h5>${{bidd }}</h5>
+                        <h5>Make a bid:</h5>  
+                        <form action="{% url 'bid' %}" method="POST">
+                          {% csrf_token %}              
+                        <input type="number" name="bid">
+                        <input type="text" name="t" readonly="readonly" value="{{ l.title }}" hidden>
+                        <input type="submit" value="make a bid" style="font-family: bold;font-size: 20px;color:rgb(255, 0, 21);">
+                        </form>
+                        {% if close %}
+                        <form action="{% url 'close' %}" method="POST">
+                          {% csrf_token %}
+                          <input type="text" name="t" readonly="readonly" value="{{ title }}" hidden>
+                          <input type="submit" value="close" style="font-family: bold;font-size: 20px;color:rgb(255, 0, 21);">
+                        </form>
+                        {% endif %}
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+  		</tr>
+  	</table><hr><hr>
+    <table>
+      <tr>
+        <td>
+        <form action="{% url 'comments' %}" method="POST">
+          {% csrf_token %}
+         <p> <textarea placeholder="enter comments here" rows="10" cols="30" name="comments"> 
+            
+
+          </textarea></p>
+          <input type="text" name="t" readonly="readonly" value="{{ title }}" hidden>
+          <p align="center"  style="padding-top: 20px;padding-left: 5px"><input type="submit"></p>
+        </form>
+         </td>
+         <td>
+          <ul>
+          {% for c in comments %}
+            <li style="font-family: bold;font-size: 20px;color:rgb(234, 0, 255);">{{ c.comments }}</li>
+          {% endfor %}
+         
+       </ul>
+         </td>
+      </tr>
+    </table>
+    {% endif %}
+   {% endfor %}
+{% endblock %}
